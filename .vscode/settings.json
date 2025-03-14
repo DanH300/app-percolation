@@ -5,5 +5,7 @@
     "java.project.referencedLibraries": [
         "~/lib/stdlib.jar",
         "~/lib/dsa.jar",
-    ]
+    ],
+    "workbench.colorTheme": "Ayu Mirage Bordered",
+    "workbench.iconTheme": "material-icon-theme",
 }

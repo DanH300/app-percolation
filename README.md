@@ -2,6 +2,10 @@
 
 This project implements a percolation model, which is a physical phenomenon where a fluid can flow through a porous material. In computational terms, a system is modeled as an n×n grid of sites, where each site is either open (can allow fluid to pass) or blocked (cannot allow fluid to pass). A system "percolates" if there is a path of open sites from the top to the bottom.
 
+# Author's
+- José Andres De Lancer
+- Paul De Lancer
+
 ## Requirements
 
 - Java 8 or higher
