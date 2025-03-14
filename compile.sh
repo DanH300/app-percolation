@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Crear directorio para archivos compilados
+# Create directory for compiled files
 mkdir -p out
 
-# Compilar las bibliotecas primero
+# Compile the libraries first
 javac -d out lib/*.java
 
-# Compilar los archivos fuente
+# Compile the source files
 javac -d out -cp out src/*.java
 
-echo "Compilación completada. Los archivos .class están en el directorio 'out'." 
+echo "Compilation completed. The .class files are in the 'out' directory." 

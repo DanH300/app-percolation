@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Verificar si se proporcionó un archivo de entrada
+# Check if an input file was provided
 if [ $# -eq 0 ]; then
-    echo "Uso: ./run_percolation.sh <archivo_de_entrada>"
-    echo "Ejemplo: ./run_percolation.sh data/input10.txt"
+    echo "Usage: ./run_percolation.sh <input_file>"
+    echo "Example: ./run_percolation.sh data/input10.txt"
     exit 1
 fi
 
-# Ejecutar el visualizador de percolación con el archivo de entrada proporcionado
+# Run the percolation visualizer with the provided input file
 java -cp out PercolationVisualizer $1 

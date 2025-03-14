@@ -1,8 +1,8 @@
 package dsa;
 
 /**
- * Implementación de la estructura de datos Union-Find con ponderación y compresión de caminos.
- * Esta es una versión simplificada de la implementación de Princeton.
+ * Implementation of the Union-Find data structure with weighting and path compression.
+ * This is a simplified version of Princeton's implementation.
  */
 public class WeightedQuickUnionUF {
     private int[] parent;   // parent[i] = parent of i
@@ -10,8 +10,8 @@ public class WeightedQuickUnionUF {
     private int count;      // number of components
 
     /**
-     * Inicializa una estructura union-find vacía con n elementos 0 a n-1.
-     * Inicialmente, cada elemento está en su propio conjunto.
+     * Initializes an empty union-find data structure with n elements 0 through n-1.
+     * Initially, each element is in its own set.
      */
     public WeightedQuickUnionUF(int n) {
         count = n;
@@ -24,48 +24,48 @@ public class WeightedQuickUnionUF {
     }
 
     /**
-     * Devuelve el número de conjuntos.
+     * Returns the number of sets.
      */
     public int count() {
         return count;
     }
 
     /**
-     * Devuelve el componente identificador para el componente que contiene p.
+     * Returns the component identifier for the component containing p.
      */
     public int find(int p) {
         validate(p);
         while (p != parent[p]) {
-            parent[p] = parent[parent[p]];    // compresión de camino
+            parent[p] = parent[parent[p]];    // path compression
             p = parent[p];
         }
         return p;
     }
 
-    // Valida que p sea un índice válido
+    // Validates that p is a valid index
     private void validate(int p) {
         int n = parent.length;
         if (p < 0 || p >= n) {
-            throw new IllegalArgumentException("índice " + p + " no está entre 0 y " + (n-1));
+            throw new IllegalArgumentException("index " + p + " is not between 0 and " + (n-1));
         }
     }
 
     /**
-     * Devuelve true si los elementos p y q están en el mismo conjunto.
+     * Returns true if the elements p and q are in the same set.
      */
     public boolean connected(int p, int q) {
         return find(p) == find(q);
     }
 
     /**
-     * Une el conjunto que contiene el elemento p con el conjunto que contiene el elemento q.
+     * Merges the set containing element p with the set containing element q.
      */
     public void union(int p, int q) {
         int rootP = find(p);
         int rootQ = find(q);
         if (rootP == rootQ) return;
 
-        // Hace que la raíz del árbol más pequeño apunte a la raíz del árbol más grande
+        // Make smaller root point to larger one
         if (size[rootP] < size[rootQ]) {
             parent[rootP] = rootQ;
             size[rootQ] += size[rootP];

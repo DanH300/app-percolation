@@ -1,69 +1,69 @@
-# Proyecto de Percolación
+# Percolation Project
 
-Este proyecto implementa un modelo de percolación, que es un fenómeno físico donde un fluido puede atravesar un material poroso. En términos computacionales, se modela un sistema como una cuadrícula n×n de sitios, donde cada sitio está abierto (puede dejar pasar fluido) o bloqueado (no puede dejar pasar fluido). Un sistema "percola" si existe un camino de sitios abiertos desde la parte superior hasta la parte inferior.
+This project implements a percolation model, which is a physical phenomenon where a fluid can flow through a porous material. In computational terms, a system is modeled as an n×n grid of sites, where each site is either open (can allow fluid to pass) or blocked (cannot allow fluid to pass). A system "percolates" if there is a path of open sites from the top to the bottom.
 
-## Requisitos
+## Requirements
 
-- Java 8 o superior
+- Java 8 or higher
 
-## Compilación
+## Compilation
 
-Para compilar el proyecto, ejecuta el siguiente comando:
+To compile the project, run the following command:
 
 ```
 ./compile.sh
 ```
 
-Esto compilará todos los archivos Java y colocará los archivos .class en el directorio `out`.
+This will compile all Java files and place the .class files in the `out` directory.
 
-## Ejecución
+## Execution
 
-El proyecto proporciona tres formas diferentes de ejecutar la simulación de percolación:
+The project provides three different ways to run the percolation simulation:
 
-### 1. Visualizador de Percolación
+### 1. Percolation Visualizer
 
-Este visualizador muestra una simulación basada en un archivo de datos. Para ejecutarlo:
+This visualizer shows a simulation based on a data file. To run it:
 
 ```
 ./run_percolation.sh data/input10.txt
 ```
 
-Puedes reemplazar `input10.txt` con cualquier otro archivo de datos en el directorio `data/`.
+You can replace `input10.txt` with any other data file in the `data/` directory.
 
-### 2. Visualizador Interactivo
+### 2. Interactive Visualizer
 
-Este visualizador te permite interactuar con el sistema haciendo clic para abrir sitios. Para ejecutarlo:
+This visualizer allows you to interact with the system by clicking to open sites. To run it:
 
 ```
 ./run_interactive.sh 10
 ```
 
-El parámetro `10` especifica el tamaño de la cuadrícula (10×10 en este caso).
+The parameter `10` specifies the grid size (10×10 in this case).
 
-### 3. Estadísticas de Percolación
+### 3. Percolation Statistics
 
-Este programa realiza múltiples experimentos para estimar el umbral de percolación. Para ejecutarlo:
+This program performs multiple experiments to estimate the percolation threshold. To run it:
 
 ```
 ./run_stats.sh 20 100
 ```
 
-El primer parámetro (`20`) especifica el tamaño de la cuadrícula, y el segundo parámetro (`100`) especifica el número de experimentos a realizar.
+The first parameter (`20`) specifies the grid size, and the second parameter (`100`) specifies the number of experiments to perform.
 
-## Archivos de Datos
+## Data Files
 
-El directorio `data/` contiene varios archivos de datos para probar el sistema de percolación. Cada archivo tiene el formato:
+The `data/` directory contains various data files to test the percolation system. Each file has the format:
 
-1. Primera línea: tamaño n del sistema n×n
-2. Líneas siguientes: pares de coordenadas (i, j) que representan sitios a abrir
+1. First line: size n of the n×n system
+2. Subsequent lines: pairs of coordinates (i, j) representing sites to open
 
-## Estructura del Proyecto
+## Project Structure
 
-- `src/`: Contiene los archivos de código fuente Java
-  - `Percolation.java`: Implementa el modelo de percolación
-  - `PercolationStats.java`: Realiza análisis estadísticos sobre el umbral de percolación
-  - `PercolationVisualizer.java`: Proporciona visualización gráfica del sistema de percolación
-  - `InteractivePercolationVisualizer.java`: Permite interactuar con el sistema de percolación
-- `lib/`: Contiene las bibliotecas necesarias
-- `data/`: Contiene archivos de datos de prueba
-- `out/`: Contiene archivos compilados 
+- `src/`: Contains the Java source code files
+  - `Percolation.java`: Implements the percolation model
+  - `PercolationStats.java`: Performs statistical analysis on the percolation threshold
+  - `PercolationVisualizer.java`: Provides graphical visualization of the percolation system
+  - `InteractivePercolationVisualizer.java`: Allows interaction with the percolation system
+- `lib/`: Contains the required libraries
+- `data/`: Contains test data files
+- `out/`: Contains compiled files 

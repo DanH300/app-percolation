@@ -3,14 +3,14 @@ import stdlib.StdRandom;
 import stdlib.StdStats;
 
 public class PercolationStats {
-    private double[] thresholds;  // Almacena los umbrales de percolación para cada experimento
-    private int m;                // Número de experimentos
-    private static final double CONFIDENCE_95 = 1.96;  // Constante para el intervalo de confianza del 95%
+    private double[] thresholds;  // Stores percolation thresholds for each experiment
+    private int m;                // Number of experiments
+    private static final double CONFIDENCE_95 = 1.96;  // Constant for 95% confidence interval
 
     // Performs m independent experiments on an n x n percolation system.
     public PercolationStats(int n, int m) {
         if (n <= 0 || m <= 0) {
-            throw new IllegalArgumentException("n y m deben ser mayores que 0");
+            throw new IllegalArgumentException("n and m must be greater than 0");
         }
         
         this.m = m;
@@ -19,7 +19,7 @@ public class PercolationStats {
         for (int i = 0; i < m; i++) {
             Percolation perc = new Percolation(n);
             
-            // Abrir sitios aleatoriamente hasta que el sistema percole
+            // Randomly open sites until the system percolates
             while (!perc.percolates()) {
                 int row = StdRandom.uniform(n);
                 int col = StdRandom.uniform(n);
@@ -29,7 +29,7 @@ public class PercolationStats {
                 }
             }
             
-            // Calcular el umbral de percolación para este experimento
+            // Calculate percolation threshold for this experiment
             thresholds[i] = (double) perc.numberOfOpenSites() / (n * n);
         }
     }

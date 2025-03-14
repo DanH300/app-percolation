@@ -3,8 +3,8 @@ package stdlib;
 import java.util.Random;
 
 /**
- * Versión simplificada de la clase StdRandom de Princeton.
- * Esta clase proporciona métodos para generar números aleatorios.
+ * Simplified version of Princeton's StdRandom class.
+ * This class provides methods for generating random numbers.
  */
 public final class StdRandom {
 

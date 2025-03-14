@@ -1,8 +1,8 @@
 package stdlib;
 
 /**
- * Versión simplificada de la clase StdStats de Princeton.
- * Esta clase proporciona métodos para calcular estadísticas básicas.
+ * Simplified version of Princeton's StdStats class.
+ * This class provides methods for computing basic statistics.
  */
 public final class StdStats {
 

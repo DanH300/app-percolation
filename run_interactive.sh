@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Verificar si se proporcionó un tamaño de cuadrícula
+# Check if a grid size was provided
 if [ $# -eq 0 ]; then
-    echo "Uso: ./run_interactive.sh <tamaño_de_cuadrícula>"
-    echo "Ejemplo: ./run_interactive.sh 10"
+    echo "Usage: ./run_interactive.sh <grid_size>"
+    echo "Example: ./run_interactive.sh 10"
     exit 1
 fi
 
-# Ejecutar el visualizador interactivo de percolación con el tamaño de cuadrícula proporcionado
+# Run the interactive percolation visualizer with the provided grid size
 java -cp out InteractivePercolationVisualizer $1 

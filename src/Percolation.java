@@ -3,47 +3,47 @@ import stdlib.In;
 import stdlib.StdOut;
 
 public class Percolation {
-    private boolean[][] grid;          // grid[i][j] = true si el sitio (i, j) está abierto
-    private int n;                     // tamaño de la cuadrícula n x n
-    private int openSites;             // número de sitios abiertos
-    private WeightedQuickUnionUF uf;   // estructura de datos Union-Find para determinar percolación
-    private WeightedQuickUnionUF ufFull; // estructura de datos Union-Find para determinar si un sitio está lleno
+    private boolean[][] grid;          // grid[i][j] = true if site (i, j) is open
+    private int n;                     // size of the n x n grid
+    private int openSites;             // number of open sites
+    private WeightedQuickUnionUF uf;   // Union-Find data structure for percolation detection
+    private WeightedQuickUnionUF ufFull; // Union-Find data structure to determine if a site is full
 
     // Constructs an n x n percolation system, with all sites blocked.
     public Percolation(int n) {
         if (n <= 0) {
-            throw new IllegalArgumentException("n debe ser mayor que 0");
+            throw new IllegalArgumentException("n must be greater than 0");
         }
         
         this.n = n;
         this.openSites = 0;
         this.grid = new boolean[n][n];
         
-        // Inicializar todos los sitios como bloqueados
+        // Initialize all sites as blocked
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 grid[i][j] = false;
             }
         }
         
-        // Crear estructura Union-Find con n*n sitios + 2 sitios virtuales (superior e inferior)
+        // Create Union-Find structure with n*n sites + 2 virtual sites (top and bottom)
         uf = new WeightedQuickUnionUF(n * n + 2);
         
-        // Crear estructura Union-Find con n*n sitios + 1 sitio virtual (superior)
-        // Esta estructura se usa para determinar si un sitio está lleno
+        // Create Union-Find structure with n*n sites + 1 virtual site (top)
+        // This structure is used to determine if a site is full
         ufFull = new WeightedQuickUnionUF(n * n + 1);
         
-        // Sitio virtual superior es n*n, sitio virtual inferior es n*n+1
+        // Virtual top site is n*n, virtual bottom site is n*n+1
         int virtualTop = n * n;
         int virtualBottom = n * n + 1;
         
-        // Conectar sitios de la primera fila al sitio virtual superior
+        // Connect sites in the first row to the virtual top site
         for (int j = 0; j < n; j++) {
             uf.union(encode(0, j), virtualTop);
             ufFull.union(encode(0, j), virtualTop);
         }
         
-        // Conectar sitios de la última fila al sitio virtual inferior
+        // Connect sites in the last row to the virtual bottom site
         for (int j = 0; j < n; j++) {
             uf.union(encode(n - 1, j), virtualBottom);
         }
@@ -54,14 +54,14 @@ public class Percolation {
         validate(i, j);
         
         if (isOpen(i, j)) {
-            return;  // El sitio ya está abierto
+            return;  // Site is already open
         }
         
         grid[i][j] = true;
         openSites++;
         
-        // Conectar con sitios vecinos abiertos
-        int[] dx = {-1, 1, 0, 0};  // arriba, abajo, izquierda, derecha
+        // Connect with open neighboring sites
+        int[] dx = {-1, 1, 0, 0};  // up, down, left, right
         int[] dy = {0, 0, -1, 1};
         
         for (int k = 0; k < 4; k++) {
@@ -89,7 +89,7 @@ public class Percolation {
             return false;
         }
         
-        // Un sitio está lleno si está conectado al sitio virtual superior
+        // A site is full if it's connected to the virtual top site
         return ufFull.connected(encode(i, j), n * n);
     }
 
@@ -100,7 +100,7 @@ public class Percolation {
 
     // Returns true if this system percolates, and false otherwise.
     public boolean percolates() {
-        // El sistema percola si el sitio virtual superior está conectado al sitio virtual inferior
+        // The system percolates if the virtual top site is connected to the virtual bottom site
         return uf.connected(n * n, n * n + 1);
     }
 
@@ -109,10 +109,10 @@ public class Percolation {
         return i * n + j;
     }
     
-    // Valida que (i, j) sea una posición válida en la cuadrícula
+    // Validates that (i, j) is a valid position in the grid
     private void validate(int i, int j) {
         if (i < 0 || i >= n || j < 0 || j >= n) {
-            throw new IllegalArgumentException("Índice fuera de rango: (" + i + ", " + j + ")");
+            throw new IllegalArgumentException("Index out of range: (" + i + ", " + j + ")");
         }
     }
 

@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Verificar si se proporcionaron los parámetros necesarios
+# Check if the required parameters were provided
 if [ $# -lt 2 ]; then
-    echo "Uso: ./run_stats.sh <tamaño_de_cuadrícula> <número_de_experimentos>"
-    echo "Ejemplo: ./run_stats.sh 20 100"
+    echo "Usage: ./run_stats.sh <grid_size> <number_of_experiments>"
+    echo "Example: ./run_stats.sh 20 100"
     exit 1
 fi
 
-# Ejecutar las estadísticas de percolación con los parámetros proporcionados
+# Run the percolation statistics with the provided parameters
 java -cp out PercolationStats $1 $2 

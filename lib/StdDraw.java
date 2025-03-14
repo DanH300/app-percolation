@@ -12,8 +12,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
- * Versión simplificada de la clase StdDraw de Princeton.
- * Esta clase proporciona una interfaz básica para dibujar figuras geométricas.
+ * Simplified version of Princeton's StdDraw class.
+ * This class provides a basic interface for drawing geometric shapes.
  */
 public final class StdDraw implements ActionListener, MouseListener, MouseMotionListener, KeyListener {
 

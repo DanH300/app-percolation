@@ -6,8 +6,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.Locale;
 
 /**
- * Versión simplificada de la clase StdOut de Princeton.
- * Esta clase proporciona métodos para escribir cadenas y números en la salida estándar.
+ * Simplified version of Princeton's StdOut class.
+ * This class provides methods for writing strings and numbers to standard output.
  */
 public final class StdOut {
 

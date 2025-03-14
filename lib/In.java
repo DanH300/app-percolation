@@ -8,8 +8,8 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 /**
- * Versión simplificada de la clase In de Princeton.
- * Esta clase proporciona métodos para leer datos de entrada desde archivos.
+ * Simplified version of Princeton's In class.
+ * This class provides methods for reading input data from files.
  */
 public final class In {
     
